@@ -1,0 +1,66 @@
+export const recipesArray = [
+  {
+    name: "Raspberry Cupcake",
+    images: [
+      "https://images.pexels.com/photos/1055272/pexels-photo-1055272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://bonnibakery.com/wp-content/uploads/2022/04/Raspberry-Cupcakes2954-4-720x720.jpg",
+    ],
+    description:
+      "These fresh raspberry cupcakes are a super cute spring bake, or great for something like valentine’s day because of their naturally pretty pink color",
+    ingredients: [
+      "½ cup Butter 113g",
+      "1 cup White Sugar 200g",
+      "1 Egg",
+      "1 ½ cups All-purpose Flour 190g",
+      "½ cup Raspberry Coulis 120g (as prepared above)",
+      "⅓ cup Milk 80g",
+      "1 teaspoon Baking Powder",
+      "½ teaspoon Baking Soda",
+      "½ teaspoon Salt",
+      "1 teaspoon Vanilla Extract",
+    ],
+    directions: [
+      "Preheat oven to 350°F / 180°C and line a cupcake pan with cupcake liners.",
+      "Cream butter and sugar together until pale and fluffy.",
+      "Add egg and stir until combined.",
+      "Combine flour, baking powder, baking soda and salt in a bowl. Add half of the flour mixture to the batter and mix in completely.",
+      "Add the milk, vanilla and ½ cup of the prepared and cooled raspberry puree. Keep the rest of the puree for the filling and frosting later.",
+      "Mix in the milk and raspberry completely, then add the remaining flour and stir in. It should be a beautiful pink colour.",
+      "Scoop cupcake batter into cupcake liners and bake for 17 minutes or until the tops of the cupcakes spring back when you press them lightly.",
+      "Let the cupcakes sit for a few minutes after removing from the oven, then transfer to a wire rack to cool completely.",
+      "Once cooled, use a cupcake corer or a spoon to scoop out a hole in the centre of each cupcake and fill with 1 teaspoon of raspberry coulis.",
+    ],
+  },
+  {
+    name: "Raspberry Cupcake",
+    images: [
+      "https://images.pexels.com/photos/1055272/pexels-photo-1055272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://bonnibakery.com/wp-content/uploads/2022/04/Raspberry-Cupcakes2954-4-720x720.jpg",
+    ],
+    description:
+      "These fresh raspberry cupcakes are a super cute spring bake, or great for something like valentine’s day because of their naturally pretty pink color",
+    ingredients: [
+      "½ cup Butter 113g",
+      "1 cup White Sugar 200g",
+      "1 Egg",
+      "1 ½ cups All-purpose Flour 190g",
+      "½ cup Raspberry Coulis 120g (as prepared above)",
+      "⅓ cup Milk 80g",
+      "1 teaspoon Baking Powder",
+      "½ teaspoon Baking Soda",
+      "½ teaspoon Salt",
+      "1 teaspoon Vanilla Extract",
+    ],
+    directions: [
+      "Preheat oven to 350°F / 180°C and line a cupcake pan with cupcake liners.",
+      "Cream butter and sugar together until pale and fluffy.",
+      "Add egg and stir until combined.",
+      "Combine flour, baking powder, baking soda and salt in a bowl. Add half of the flour mixture to the batter and mix in completely.",
+      "Add the milk, vanilla and ½ cup of the prepared and cooled raspberry puree. Keep the rest of the puree for the filling and frosting later.",
+      "Mix in the milk and raspberry completely, then add the remaining flour and stir in. It should be a beautiful pink colour.",
+      "Scoop cupcake batter into cupcake liners and bake for 17 minutes or until the tops of the cupcakes spring back when you press them lightly.",
+      "Let the cupcakes sit for a few minutes after removing from the oven, then transfer to a wire rack to cool completely.",
+      "Once cooled, use a cupcake corer or a spoon to scoop out a hole in the centre of each cupcake and fill with 1 teaspoon of raspberry coulis.",
+    ],
+  },
+];
