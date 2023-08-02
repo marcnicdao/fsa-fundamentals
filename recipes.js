@@ -4,7 +4,7 @@ export const loadRecipesList = (recipes) => {
   recipes.forEach((recipe) => {
     const recipeElement = document.createElement("div");
     recipeElement.classList.add("recipe");
-
+    recipeElement.dataset.recipeName = recipe.name;
     const recipeItem = `
         <img class="recipe-img" src=${recipe.images[0]}></img>
         <div class="recipe-text">
