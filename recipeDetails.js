@@ -1,22 +1,13 @@
 export const loadRecipeDetail = (recipe) => {
-  console.log(recipe);
   const contentContainer = document.querySelector(".content");
   const recipeDetailsDiv = document.createElement("div");
   recipeDetailsDiv.className = "recipe-details";
 
   const recipeDetailsInnerDiv = document.createElement("div");
   recipeDetailsInnerDiv.className = "recipe-details-inner";
-
-  const recipeDetailImgContainer = document.createElement("div");
-  recipeDetailImgContainer.className = "recipe-details-img-container";
-
-  const recipeDetailsImg = document.createElement("img");
-  recipeDetailsImg.src = recipe.images[0];
-  recipeDetailsImg.classList.add("recipe-details-img");
-  recipeDetailImgContainer.appendChild(recipeDetailsImg);
-
   recipeDetailsDiv.appendChild(recipeDetailsInnerDiv);
 
+  const recipeDetailImgContainer = createRecipeDetailsImgContainer(recipe);
   const recipeDetailsInfoDiv = document.createElement("div");
   recipeDetailsInfoDiv.className = "recipe-details-info";
   recipeDetailsInnerDiv.appendChild(recipeDetailImgContainer);
@@ -25,6 +16,45 @@ export const loadRecipeDetail = (recipe) => {
   recipeDetailsName.innerText = recipe.name;
   recipeDetailsInfoDiv.appendChild(recipeDetailsName);
 
+  const ingredientsDiv = createIngredientsDiv(recipe);
+  recipeDetailsInfoDiv.appendChild(ingredientsDiv);
+  recipeDetailsInnerDiv.appendChild(recipeDetailsInfoDiv);
+
+  const directionsDiv = createDirectionsDiv(recipe);
+  recipeDetailsInfoDiv.appendChild(directionsDiv);
+
+  contentContainer.appendChild(recipeDetailsDiv);
+};
+
+/* <div class="recipe-details-img-container">
+  <img
+    src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F9375585.jpg&q=60&c=sc&orient=true&poi=auto&h=512"
+    alt=""
+    class="recipe-details-img"
+  />
+</div>; */
+const createRecipeDetailsImgContainer = (recipe) => {
+  const recipeDetailImgDiv = document.createElement("div");
+  recipeDetailImgDiv.className = "recipe-details-img-container";
+
+  const recipeDetailsImg = document.createElement("img");
+  recipeDetailsImg.src = recipe.images[0];
+  recipeDetailsImg.classList.add("recipe-details-img");
+  recipeDetailImgDiv.appendChild(recipeDetailsImg);
+
+  return recipeDetailImgDiv;
+};
+
+/* <div class="ingredients">
+  <h4>Ingredients:</h4>
+  <ul>
+    <li>loren</li>
+    <li>loren</li>
+    <li>loren</li>
+  </ul>
+</div>; */
+
+const createIngredientsDiv = (recipe) => {
   const ingredientsDiv = document.createElement("div");
   ingredientsDiv.className = "ingredients";
   const ingredientsTitle = document.createElement("h4");
@@ -39,9 +69,20 @@ export const loadRecipeDetail = (recipe) => {
   });
 
   ingredientsDiv.appendChild(ingredientsUl);
-  recipeDetailsInfoDiv.appendChild(ingredientsDiv);
-  recipeDetailsInnerDiv.appendChild(recipeDetailsInfoDiv);
 
+  return ingredientsDiv;
+};
+
+/* <div class="directions">
+  <h4>Directions:</h4>
+  <ol>
+    <li>lorem</li>
+    <li>lorem</li>
+    <li>lorem</li>
+    <li>lorem</li>
+  </ol>
+</div>; */
+const createDirectionsDiv = (recipe) => {
   const directionsDiv = document.createElement("div");
   directionsDiv.className = "directions";
 
@@ -57,7 +98,5 @@ export const loadRecipeDetail = (recipe) => {
   });
 
   directionsDiv.appendChild(directionsOl);
-  recipeDetailsInfoDiv.appendChild(directionsDiv);
-
-  contentContainer.appendChild(recipeDetailsDiv);
+  return directionsDiv;
 };

@@ -2,6 +2,7 @@ import { loadHeader } from "./header.js";
 import { loadRecipesList } from "./recipes.js";
 import { recipesArray } from "./recipesArray.js";
 import { loadRecipeDetail } from "./recipeDetails.js";
+import { loadFooter } from "./loadFooter.js";
 
 const currentPage = document.URL.split("/")[3];
 let test = "initial";
@@ -18,6 +19,7 @@ const loadBody = (currentPage) => {
 document.addEventListener("DOMContentLoaded", () => {
   loadHeader();
   loadBody(currentPage);
+  loadFooter();
   eventHandlerAdder();
   console.log("test", test);
 });
@@ -46,6 +48,8 @@ const eventHandlerAdder = () => {
           (recipe) => recipe.name === recipeName
         );
         loadRecipeDetail(currentRecipe);
+        const footer = document.querySelector(".footer");
+        footer.classList.add("display-none");
       });
     });
   }

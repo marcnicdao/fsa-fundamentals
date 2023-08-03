@@ -187,3 +187,24 @@ h6 {
   padding-top: 1rem;
   width: 100%;
 }
+
+.footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  color: white;
+  background-color: rgb(86, 195, 223);
+  float: left;
+}
+
+.footer > div {
+  align-self: center;
+}
+.footer-text {
+  display: table;
+  margin: auto;
+}
+
+.display-none {
+  display: none;
+}
