@@ -3,17 +3,65 @@ import { loadRecipesList } from "./recipes.js";
 import { recipesArray } from "./recipesArray.js";
 import { loadRecipeDetail } from "./recipeDetails.js";
 import { loadFooter } from "./loadFooter.js";
+import { loadFeatured } from "./featured.js";
 
 const currentPage = document.URL.split("/")[3];
 let test = "initial";
 
 const loadBody = (currentPage) => {
-  if (currentPage === "") {
-    return;
+  if (currentPage === "index.html" || currentPage === "") {
+    const randomIndex = Math.floor(Math.random() * recipesArray.length);
+    const randomRecipe = recipesArray[randomIndex];
+    return loadFeatured(randomRecipe);
   }
   if (currentPage === "recipes.html") {
-    console.log("works", recipesArray);
     return loadRecipesList(recipesArray);
+  }
+
+  if (currentPage === "suggest.html") {
+    const agreeButton = document.querySelector(".agree-button");
+    const submitButton = document.querySelector(".submit-button");
+
+    agreeButton.addEventListener("click", () => {
+      const disabled = submitButton.classList.contains("disabled");
+      if (disabled) {
+        submitButton.classList.remove("disabled");
+        agreeButton.classList.remove("btn-outline-danger");
+        agreeButton.classList.add("btn-outline-success");
+      } else {
+        submitButton.classList.add("disabled");
+        agreeButton.classList.add("btn-outline-danger");
+        agreeButton.classList.remove("btn-outline-success");
+      }
+    });
+
+    submitButton.addEventListener("click", () => {
+      const recipeNameField = document.querySelector("#recipe-name");
+      const ingredientsField = document.querySelector("#ingredients");
+      const nameField = document.querySelector("#name");
+      const emailField = document.querySelector("#email");
+
+      const hasNoEmptyFields =
+        recipeNameField.value &&
+        ingredientsField.value &&
+        nameField.value &&
+        emailField.value;
+      if (hasNoEmptyFields) {
+        const submittedName = document.querySelector(".submitted-name");
+        const submittedBody = document.querySelector(".submitted-body");
+        const submittedTime = document.querySelector(".submitted-time");
+        const modal = document.querySelector(".suggest-modal");
+
+        modal.classList.remove("display-none");
+        submittedTime.innerText = `By ${
+          emailField.value
+        } on ${getCurrentDateTimeFormatted()}`;
+        submittedName.innerText = recipeNameField.value;
+        submittedBody.innerText = ingredientsField.value;
+      } else {
+        alert("All Fields are required!");
+      }
+    });
   }
 };
 document.addEventListener("DOMContentLoaded", () => {
@@ -21,7 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
   loadBody(currentPage);
   loadFooter();
   eventHandlerAdder();
-  console.log("test", test);
 });
 
 const eventHandlerAdder = () => {
@@ -36,21 +83,49 @@ const eventHandlerAdder = () => {
         (recipe) => recipe.name === recipeName
       );
       loadRecipeDetail(currentRecipe);
+      // const footer = document.querySelector(".footer");
+      // footer.classList.add("display-none");
     });
   }
 
   if (recipeElements) {
     recipeElements.forEach((recipe) => {
       recipe.addEventListener("click", (e) => {
-        console.log(e.currentTarget.dataset.recipeName);
         const recipeName = e.currentTarget.dataset.recipeName;
         const currentRecipe = recipesArray.find(
           (recipe) => recipe.name === recipeName
         );
         loadRecipeDetail(currentRecipe);
-        const footer = document.querySelector(".footer");
-        footer.classList.add("display-none");
+        // const footer = document.querySelector(".footer");
+        // footer.classList.add("display-none");
       });
     });
   }
 };
+
+function getCurrentDateTimeFormatted() {
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  const currentDate = new Date();
+  const month = months[currentDate.getMonth()];
+  const day = currentDate.getDate();
+  const year = currentDate.getFullYear();
+  const hours = String(currentDate.getHours()).padStart(2, "0");
+  const minutes = String(currentDate.getMinutes()).padStart(2, "0");
+
+  const formattedDateTime = `${month} ${day} ${year} ${hours}:${minutes}`;
+  return formattedDateTime;
+}

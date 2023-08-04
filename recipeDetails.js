@@ -6,7 +6,6 @@ export const loadRecipeDetail = (recipe) => {
   const recipeDetailsInnerDiv = document.createElement("div");
   recipeDetailsInnerDiv.className = "recipe-details-inner";
   recipeDetailsDiv.appendChild(recipeDetailsInnerDiv);
-
   const recipeDetailImgContainer = createRecipeDetailsImgContainer(recipe);
   const recipeDetailsInfoDiv = document.createElement("div");
   recipeDetailsInfoDiv.className = "recipe-details-info";
@@ -36,7 +35,6 @@ export const loadRecipeDetail = (recipe) => {
 const createRecipeDetailsImgContainer = (recipe) => {
   const recipeDetailImgDiv = document.createElement("div");
   recipeDetailImgDiv.className = "recipe-details-img-container";
-
   const recipeDetailsImg = document.createElement("img");
   recipeDetailsImg.src = recipe.images[0];
   recipeDetailsImg.classList.add("recipe-details-img");

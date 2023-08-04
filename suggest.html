@@ -4,11 +4,107 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recipe World</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="header-container" id="header-container"></div>
-    <div class="content">SUGGEST</div>
+    <div class="content">
+      <div class="form-container col-6 p-2">
+        <form action="/submit">
+          <div class="row suggest-inner-div">
+            <div class="col-md-12 d-flex justify-content-center mt-3">
+              <h1 class="suggest-title">Suggest</h1>
+            </div>
+            <div class="col-md-12">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="recipe-name"
+                  placeholder="Recipe Name*"
+                />
+                <label for="recipe-name">Recipe Name*</label>
+              </div>
+            </div>
+            <div class="col-md-12 mb-3">
+              <div class="form-floating">
+                <textarea
+                  class="form-control suggest-textbox"
+                  id="ingredients"
+                  placeholder="Ingredients*"
+                ></textarea>
+                <label for="ingredients">Ingredients*</label>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Your Name*"
+                />
+                <label for="name">Your Name*</label>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="email"
+                  placeholder="Your Email*"
+                />
+                <label for="recipe-name">Your Email*</label>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <input
+                type="checkbox"
+                class="btn-check"
+                id="btncheck1"
+                autocomplete="off"
+              />
+              <label class="btn btn-outline-danger agree-button" for="btncheck1"
+                >I agree to the terms and condition.</label
+              >
+            </div>
+            <div class="col-md-12 mt-3">
+              <a
+                href="#"
+                class="btn btn-primary btn disabled submit-button"
+                tabindex="-1"
+                role="submit"
+                aria-disabled="true"
+                >Submit</a
+              >
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="suggest-modal display-none">
+        <div class="col-6 col-5-md">
+          <div class="card text-center mt-3">
+            <div class="card-header recipe-submitted">
+              Suggested Recipe Submitted
+            </div>
+            <div class="card-body">
+              <h5 class="card-title submitted-name">Recipe Name</h5>
+              <p class="card-text submitted-body">
+                ingredients here. Lorem, ipsum. Lorem, ipsum dolor. lorem5
+              </p>
+            </div>
+            <div class="card-footer text-muted submitted-time">2 days ago</div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script type="module" src="index.js"></script>
   </body>
   <footer class="footer"></footer>
