@@ -25,7 +25,7 @@ const createNavBar = (pageList) => {
     const a = document.createElement("a");
     a.href = `${page}.html`;
     a.innerText = page === "index" ? "HOME" : page.toUpperCase();
-    li.classList.add("nav-link");
+    li.classList.add("nav-links");
     li.appendChild(a);
     ulElement.appendChild(li);
   });

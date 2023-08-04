@@ -27,7 +27,7 @@ export const loadRecipeDetail = (recipe) => {
 
 /* <div class="recipe-details-img-container">
   <img
-    src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F9375585.jpg&q=60&c=sc&orient=true&poi=auto&h=512"
+    src=""
     alt=""
     class="recipe-details-img"
   />
